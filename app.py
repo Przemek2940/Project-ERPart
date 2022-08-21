@@ -43,6 +43,5 @@ def availability_add():
         return redirect(url_for('view_availability'))
 
 
-
 if __name__ == '__main__':
     app.run(debug=True)
