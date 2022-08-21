@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Obecny stan magazynowy</title>
+  </head>
+
+  <body>
+  <div>
+        <style type="text/css">
+          table tr#ROW1  {background: hsla(200 64% 24%); color:white;}
+        </style>
+          <div style="text-align:left; width:600px; float:left">
+            <table BORDER CELLSPACING=8>
+            <caption>Obecny stan magazynu:</caption>
+              <thead>
+              <tr id="ROW1">
+                <th>Typ</th>
+                <th>ID</th>
+                  <th>Nazwa</th>
+                  <th>Dostępna ilość</th>
+              </tr>
+              </thead>
+                {% for item in ava %}
+                <tr>
+                    <td>{{ item[1] }}</td>
+                    <td>{{ item[2] }}</td>
+                    <td>{{ item[3] }}</td>
+                    <td>{{ item[4] }}</td>
+                </tr>
+                {% endfor %}
+              </table>
+          </div>
+
+          <div style="float:left">
+                <h4>Aby uzupełnić stan magazynowy - dodaj dostawę:</h4>
+                 <form action="{{ url_for('availability_add') }}" method="post">
+                <div class="form-group">
+                    <label for="id_item">Podaj ID przedmiotu:</label><br>
+                    <input class="form-control" type="number" id ="id_item" name="id_item" placeholder="ID przedmiotu">
+                </div>
+                <div class="form-group">
+                    <label for="quant"></label>Podaj ilość:<br>
+                    <input class="form-control" type="number" id ="quant" name="quant" placeholder="Ilość">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary">Dodaj</button>
+                </div>
+                </form>
+          </div>
+
+  </div>
+
+  </body>
+</html>
