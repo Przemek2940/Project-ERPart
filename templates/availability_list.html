@@ -34,6 +34,7 @@
         text-align: center;
             }
     </style>
+  <! SEKCJA TABELI >
           <div style="text-align:left; width:600px; float:left">
             <table BORDER CELLSPACING=8>
             <caption>Obecny stan magazynu:</caption>
@@ -55,7 +56,7 @@
                 {% endfor %}
               </table>
           </div>
-
+<! SEKCJA INSERTU >
           <div style="float:left">
                 <h4>Aby uzupełnić stan magazynowy - dodaj dostawę:</h4>
                  <form action="{{ url_for('availability_add') }}" method="post">
