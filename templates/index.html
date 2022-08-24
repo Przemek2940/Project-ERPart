@@ -44,14 +44,45 @@
         padding: 0;
         margin: 0;
         opacity: 1;
-        transition: 0s
+        transition: 0s;
 }
+
+    .footer {
+        position: absolute;
+        bottom: 50px;
+        right: 0;
+        text-align: center;
+        width: 300px;
+    }
+    .github {
+        width:100px;
+        height:100px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        background-image: url("https://cdn-icons-png.flaticon.com/512/25/25231.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        top: 50%;
+        right: 0%;
+
+
+    }
 </style>
   <head >
     <title>Symulacja zamówienia</title>
   </head>
 <body>
-<h1>Symulacja zamówienia</h1>
-<a href="{{ url_for('view_availability') }}"><button class="button">Stany magazynowe</button></a>
+
+    <div>
+    <h1>Symulacja zamówienia</h1>
+    <a href="{{ url_for('view_availability') }}"><button class="button">Stany magazynowe</button></a>
+    </div>
+    <div class="footer">
+    <h4>Jeżeli chcesz zobaczyć kod tej strony - zapraszam na GitHub:</h4>
+    <a href="https://github.com/Przemek2940/Project-ERPart"><button class="github"></button></a>
+    </div>
+
 </body>
 </html>
