@@ -1,38 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link href="style.css" rel="stylesheet">
     <title>Obecny stan magazynowy</title>
   </head>
 
   <body>
   <div>
     <style type="text/css">
+      body {
+        background: rgb(109,131,194);
+        background: linear-gradient(270deg, rgba(109,131,194,1) 30%, rgba(58,55,173,1) 100%);
+        color: white;
+        margin: 20px;
+        padding: 20px;
+}
+
+      caption {
+        background: rgb(0,34,249);
+        background: linear-gradient(270deg, rgba(0,34,249,1) 0%, rgba(36,42,56,0.4598214285714286) 0%);
+        border: 3px solid #acacac;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 2px 0;
+        text-align: center;
+  }
+
       table {
-            background: #6d83c2;
-            font-family: sans-serif;
-            font-size: 14px;
-            border: 1px solid #4270f0;
-            padding: 5px;
-            border-spacing: 0 1px;
-            text-align: left;
-      }
+        background: rgb(109,131,194);
+        background: rgba(58,55,173,1);
+        font-family: sans-serif;
+        font-size: 14px;
+        border: 3px solid #acacac;
+        border-radius: 10px;
+        padding: 5px;
+        border-spacing: 0 1px;
+        text-align: left;
+  }
       tr:nth-child(odd) td {
-                            background: #cbcccf;
-      }
+        background: rgb(0,34,249);
+        background: linear-gradient(270deg, rgba(0,34,249,1) 0%, rgba(75,75,75,0.4598214285714286) 0%);
+  }
       tr:nth-child(even) td {
-                            background: #acc6f9;
-      }
+        background: rgb(0,34,249);
+        background: linear-gradient(270deg, rgba(0,34,249,1) 0%, rgba(175,175,175,0.5) 0%);
+  }
       th {
-          background: #839ce2;
-          padding: 5px;
-      }
+        background: rgb(0,34,249);
+        background: linear-gradient(270deg, rgba(0,34,249,1) 0%, rgba(62,62,62,0.5) 0%);
+        border-radius: 5px;
+        padding: 5px;
+  }
       td {
-          padding: 5px;
-      }
+        padding: 5px;
+  }
 
       td:nth-child(5) {
         text-align: center;
-            }
+        }
+
+      h4 {
+        background: rgb(0,34,249);
+        background: linear-gradient(270deg, rgba(0,34,249,1) 0%, rgba(36,42,56,0.4598214285714286) 0%);
+        border: 1px solid #acacac;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 2px 0;
+        text-align: center;
+        width: 500px;
+  }
+      .deliveryadd {
+        background: rgb(0,34,249);
+        background: linear-gradient(270deg, rgba(0,34,249,1) 0%, rgba(36,42,56,0.4598214285714286) 0%);
+        border: 3px solid #acacac;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 2px 0;
+        text-align: center;
+        float:left
+  }
     </style>
   <! SEKCJA TABELI >
           <div style="text-align:left; width:600px; float:left">
@@ -57,7 +103,7 @@
               </table>
           </div>
 <! SEKCJA INSERTU >
-          <div style="float:left">
+          <div class="deliveryadd">
                 <h4>Aby uzupełnić stan magazynowy - dodaj dostawę:</h4>
                  <form action="{{ url_for('availability_add') }}" method="post">
                 <div class="form-group">
