@@ -50,13 +50,13 @@
     .footer {
         position: absolute;
         bottom: 50px;
-        right: 0;
+        right: 5px;
         text-align: center;
         width: 300px;
     }
     .github {
-        width:100px;
-        height:100px;
+        width:80px;
+        height:80px;
         transition-duration: 0.4s;
         cursor: pointer;
         background-image: url("https://cdn-icons-png.flaticon.com/512/25/25231.png");
@@ -66,8 +66,6 @@
         position: relative;
         top: 50%;
         right: 0%;
-
-
     }
 </style>
   <head >
@@ -80,7 +78,7 @@
     <a href="{{ url_for('view_availability') }}"><button class="button">Stany magazynowe</button></a>
     </div>
     <div class="footer">
-    <h4>Jeżeli chcesz zobaczyć kod tej strony - zapraszam na GitHub:</h4>
+    <h5>Jeżeli chcesz zobaczyć kod tej strony - zapraszam na GitHub:</h5>
     <a href="https://github.com/Przemek2940/Project-ERPart"><button class="github"></button></a>
     </div>
 
