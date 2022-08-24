@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link href="style.css" rel="stylesheet">
     <title>Obecny stan magazynowy</title>
   </head>
 
   <body>
-  <div>
+
     <style type="text/css">
       body {
         background: rgb(109,131,194);
@@ -24,6 +23,8 @@
         padding: 10px;
         margin: 2px 0;
         text-align: center;
+        font-size: 16px;
+        font-weight: bold;
   }
 
       table {
@@ -67,7 +68,10 @@
         padding: 10px;
         margin: 2px 0;
         text-align: center;
-        width: 500px;
+        display: flex;
+        width: auto;
+        font-size: 16px;
+        font-weight: bold;
   }
       .deliveryadd {
         background: rgb(0,34,249);
@@ -77,11 +81,18 @@
         padding: 10px;
         margin: 2px 0;
         text-align: center;
-        float:left
+
   }
+      .container {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: nowrap
+
+}
     </style>
+<div class="container">
   <! SEKCJA TABELI >
-          <div style="text-align:left; width:600px; float:left">
+          <div style="text-align:left;">
             <table BORDER CELLSPACING=8>
             <caption>Obecny stan magazynu:</caption>
               <thead>
@@ -120,7 +131,7 @@
 
                 </form>
           </div>
-  </div>
+</div>
 
   </body>
 </html>
