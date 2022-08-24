@@ -35,8 +35,8 @@ def view_availability():
 def availability_add():
     cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
     if request.method == 'POST':
-        id_item = request.form.get("id_item")
-        quant = request.form.get("quant")
+        id_item = int(request.form.get("id_item"))
+        quant = int(request.form.get("quant"))
 
         cur.execute('INSERT INTO availability(id_item, item_quant) VALUES (%s,%s)', (id_item, quant))
         conn.commit()
