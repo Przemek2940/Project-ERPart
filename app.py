@@ -19,7 +19,7 @@ def view_availability():
     cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
     query = """select g.id_group, g.name_group, i.id_item, i.name_item, 
                 sum((case when a.item_quant is null then 0 else a.item_quant end)) 
-                from availability a
+                from warehouse a
                     right join items i on a.id_item =  i.id_item
                     left join item_groups g on i.id_group = g.id_group
                 group by i.id_item, g.id_group
