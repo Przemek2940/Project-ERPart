@@ -9,7 +9,6 @@ conn = psycopg2.connect(
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -35,12 +34,25 @@ def view_availability():
 def availability_add():
     cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
     if request.method == 'POST':
+        table_item = """select id_item from items"""
+        cur.execute(table_item)
+        table_it = cur.fetchall()
         id_item = int(request.form.get("id_item"))
         quant = int(request.form.get("quant"))
 
-        cur.execute('INSERT INTO availability(id_item, item_quant) VALUES (%s,%s)', (id_item, quant))
-        conn.commit()
-        return redirect(url_for('view_availability'))
+        if [id_item] not in table_it:
+            error = "Nieprawidłowe ID. Spróbować ponownie?"
+            return render_template('error.html', error=error)
+        elif quant > 10000:
+            error = "Zbyt duża ilość - maksymalny załadunek to 10tys. Spróbować ponownie?"
+            return render_template('error.html', error=error)
+        else:
+            cur.execute('INSERT INTO availability(id_item, item_quant) VALUES (%s,%s)', (id_item, quant))
+            conn.commit()
+            return redirect(url_for('view_availability'))
+    else:
+        error = "Błąd przesyłu danych [54]."
+        return render_template('error.html', error=error)
 
 
 if __name__ == '__main__':
