@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Błąd</title>
+</head>
+<body>
+<style>
+    body {
+        background: rgb(109,131,194);
+        background: linear-gradient(270deg, rgba(109,131,194,1) 30%, rgba(58,55,173,1) 100%);
+        color: white;
+        margin: 20px;
+        padding: 20px;
+    }
+    p {
+        background: rgb(30,31,45);
+        background: linear-gradient(270deg, rgba(30,31,45,0.74) 0%, rgba(30,35,46,0.61) 0%);
+        border: 1px;
+        border-radius: 10px;
+        padding: 30px;
+        margin: 20px 0;
+        text-align: center;
+    }
+        .button {
+        position: relative;
+        background: rgb(0,34,249);
+        background: linear-gradient(270deg, rgba(0,34,249,1) 0%, rgba(36,42,56,0.4598214285714286) 0%);
+        border: 3px solid #acacac;
+        font-size: 28px;
+        color: #FFFFFF;
+        padding: 20px;
+        width: 400px;
+        text-align: center;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        text-decoration: none;
+        overflow: hidden;
+        cursor: pointer;
+}
+
+    .button:active:after {
+        padding: 0;
+        margin: 0;
+        opacity: 1;
+        transition: 0s;
+}
+</style>
+      {% if error %}
+        <p><strong>Błąd</strong>: {{error}}</p>
+    {% endif %}
+
+<div>
+    <div>
+    <a href="{{ url_for('view_availability') }}"><button class="button">Tak</button></a>
+    </div>
+        <div>
+    <a href="{{ url_for('index') }}"><button class="button">Nie</button></a>
+    </div>
+</div>
+</body>
+</html>
