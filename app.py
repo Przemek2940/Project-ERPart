@@ -13,6 +13,10 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/rebuilding')
+def rebuilding():
+    return render_template('rebuilding.html')
+
 
 @app.route('/view_availability')
 def view_availability():
