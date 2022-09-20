@@ -36,6 +36,22 @@ p {
         overflow: hidden;
         cursor: pointer;
 }
+.buttonadd {
+        position: relative;
+        background: rgb(0,34,249);
+        background: linear-gradient(270deg, rgba(0,34,249,1) 0%, rgba(36,42,56,0.4598214285714286) 0%);
+        border: 3px solid #acacac;
+        font-size: 15px;
+        color: #FFFFFF;
+        padding: 20px;
+        width: 400px;
+        text-align: center;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        text-decoration: none;
+        overflow: hidden;
+        cursor: pointer;
+}
 
 .button:active:after {
         padding: 0;
