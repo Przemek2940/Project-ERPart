@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+<link rel="stylesheet" href="/static/style.css">
+  <head>
+    <title>Kompletowanie zamówienia</title>
+  </head>
+
+  <body>
+  <h1>Strona w budowie, niektóre funkcje mogą nie działać.</h1>
+    <form action="{{ url_for('order_saving') }}" method="post">
+          <h1>Nazwa klienta:
+              <input class="form-control form-control-lg" type="text" placeholder="Nazwa klienta"> </h1>
+
+          <div class="deliveryadd">
+                <h4>Zamówienie:</h4>
+          <label for="name_item">Nazwa przedmiotu: </label>
+                <select id="name_item">
+                    {% for item in oc %}
+                        <option>{{ item[0] }}</option>
+                    {% endfor %}
+                </select>
+
+          <label for="order_quant">Ilość: </label>
+          <input class="form-control" type="number" id ="order_quant" name="order_quant" placeholder="Ilość">
+
+          </div>
+        <div class="form-group">
+            <button class="buttonadd">Dodaj i kontynuuj dodawanie</button>
+        </div>
+        <div class="form-group">
+            <button class="buttonadd">Przejdź do wysyłki</button>
+        </div>
+        <div>
+    <a href="{{ url_for('index') }}"><button class="back">Powrót</button></a>
+    </div>
+    </form>
+     <div class="footer">
+    <h5>Jeżeli chcesz zobaczyć kod tej strony - zapraszam na GitHub:</h5>
+    <a href="https://github.com/Przemek2940/Project-ERPart"><button class="github"></button></a>
+    </div>
+  </body>
