@@ -59,5 +59,19 @@ def availability_add():
         return render_template('error.html', error=error)
 
 
+@app.route('/order_completing')
+def order_completing():
+    cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    query = """select name_item from items"""
+    cur.execute(query)
+    oc = cur.fetchall()
+    return render_template('order.html', oc=oc)
+
+@app.route('/order_saving')
+def order_saving():
+    cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    if request.method == 'POST':
+        return 0
+
 if __name__ == '__main__':
     app.run(debug=True)
