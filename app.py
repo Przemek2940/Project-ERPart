@@ -62,7 +62,13 @@ def availability_add():
 @app.route('/order_completing')
 def order_completing():
     cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
-    query = """select name_item from items"""
+    query = """select g.id_group, g.name_group, i.id_item, i.name_item,
+                sum((case when w.item_quant is null then 0 else w.item_quant end)), i.price_item||'zł' 
+                from warehouse w
+                    right join items i on w.id_item =  i.id_item
+                    left join item_groups g on i.id_group = g.id_group
+                group by i.id_item, g.id_group
+                order by g.id_group, i.id_item"""
     cur.execute(query)
     oc = cur.fetchall()
     return render_template('order.html', oc=oc)
