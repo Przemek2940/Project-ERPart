@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 conn = psycopg2.connect(
     database="Sprzedaz_magazynowa", user='postgres', password='postgres',
-    host='projectsql.c4lilzenuyna.eu-central-1.rds.amazonaws.com', port='5432')
+    host='projectsql3.c4lilzenuyna.eu-central-1.rds.amazonaws.com', port='5432')
 
 
 app = Flask(__name__)
