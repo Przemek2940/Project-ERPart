@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+<link rel="stylesheet" href="/static/style.css">
+  <head>
+    <title>Lista klientów</title>
+  </head>
+
+  <body>
+
+<div class="container">
+  <! SEKCJA TABELI >
+          <div style="text-align:left;">
+            <table BORDER CELLSPACING=8; width = 500px;>
+            <caption>Klienci:</caption>
+              <thead>
+              <tr id="ROW1">
+                <th>ID</th>
+                <th>Nazwa</th>
+              </tr>
+              </thead>
+                {% for item in cust %}
+                <tr>
+                    <td>{{ item[0] }}</td>
+                    <td>{{ item[1] }}</td>
+                </tr>
+                {% endfor %}
+              </table>
+          </div>
+<! SEKCJA INSERTU >
+          <div class="customersadd">
+                <h4>Dodaj klienta:</h4>
+                 <form action="{{ url_for('customers_add') }}" method="post">
+                <div class="form-group">
+                    <label for="name_customer">Podaj nazwę nowego klienta:</label><br>
+                    <input class="form-control" type="text" id ="name_customer" name="name_customer" placeholder="Nazwa klienta">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary">Dodaj</button>
+                </div>
+
+                </form>
+          </div>
+</div>
+    <div>
+    <a href="{{ url_for('index') }}"><button class="back">Powrót</button></a>
+    </div>
+       <div class="footer">
+    <h5>Jeżeli chcesz zobaczyć kod tej strony - zapraszam na GitHub:</h5>
+    <a href="https://github.com/Przemek2940/Project-ERPart"><button class="github"></button></a>
+        </div>
+
+  </body>
+</html>
