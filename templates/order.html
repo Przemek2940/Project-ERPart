@@ -37,10 +37,18 @@
   <! SEKCJA INSERTU >
           <div class="deliveryadd">
                     <h4>Zamówienie:</h4>
+
                 <div class="form-group">
-                    <label for="id_item">Podaj nazwę klienta:</label><br>
-                    <input class="form-control" type="text" id ="customer_name" name="customer_name" placeholder="Nazwa klienta">
+                    <label for="customer">Wybierz klienta:</label><br>
+                    <input list="name_customer" id="customer" name="customer" placeholder="Wybierz klienta">
+
+                    <datalist id="name_customer">
+                        {% for item in cop %}
+                            <option value="{{ item[1] }}">
+                        {% endfor %}
+                    </datalist>
                 </div>
+
                 <div class="form-group">
                     <label for="id_item">Podaj ID przedmiotu:</label><br>
                     <input class="form-control" type="number" id ="id_item" name="id_item" placeholder="ID przedmiotu">
@@ -59,11 +67,11 @@
                 <button class="buttonadd">Przejdź do wysyłki</button>
           </div>
 
+    </form>
+
           <div>
                 <a href="{{ url_for('index') }}"><button class="back">Powrót</button></a>
           </div>
-    </form>
-
           <div class="footer">
                 <h5>Jeżeli chcesz zobaczyć kod tej strony - zapraszam na GitHub:</h5>
                 <a href="https://github.com/Przemek2940/Project-ERPart"><button class="github"></button></a>
